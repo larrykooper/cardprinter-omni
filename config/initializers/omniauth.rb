@@ -10,9 +10,3 @@ Rails.application.config.middleware.use OmniAuth::Builder do
             "https://spreadsheets.google.com/feeds/"]
     }
 end
-
-
-
-
- #scope: ["https://www.googleapis.com/auth/drive",
- #           "https://spreadsheets.google.com/feeds/"]

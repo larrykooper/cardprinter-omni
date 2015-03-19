@@ -1,0 +1,56 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+
+#acolumn {
+    width: 487px;
+    float: left;
+}
+
+p {
+	font-size: 18px;
+}
+
+.button-bunch {
+    float: left;
+    margin-top: 70px;
+}
+
+.lk-button {
+	display: block;
+    float: left;
+	height: 80px;
+	width: 200px;
+	border: 1px solid;
+    border-radius: 25px;
+	cursor: pointer;
+}
+
+.readss {
+	background-color: #ffc0cb;
+}
+
+.done-picking {
+    margin-left: 200px;
+    background-color: #33ccff;
+}
+
+.button-text {
+    font-size: 26px;
+    line-height: 27px;
+	margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+.readss .button-text {
+    margin-top: 10px;
+    width: 64%;
+}
+
+.done-picking .button-text {
+    width: 28%;
+}
+
+.data {
+    clear: left;
+}

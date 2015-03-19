@@ -1,0 +1,12 @@
+<%# app/views/sessions/create.html.erb %>
+This displays the token information passed back to Omniauth from Google:<br>
+What this is doing: <br>
+@auth.each do |key, value| <br>
+    h1 key  /h1
+    p  value /p
+end
+
+<% @auth.each do |key, value| %>
+  <h1><%= key %> </h1>
+  <p><%= value %> </p>
+<% end %>

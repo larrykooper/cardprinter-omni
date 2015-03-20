@@ -1,9 +1,9 @@
 #Gemfile
 source 'https://rubygems.org'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '4.0.3'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
 gem 'json'

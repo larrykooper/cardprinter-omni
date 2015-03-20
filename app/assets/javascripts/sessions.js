@@ -43,6 +43,7 @@ var ajaxError = function(jqXHR, status, error) {
 };
 
 $(document).ready(function() {
+    alert( "You are running jQuery version: " + $.fn.jquery );
     $(".get-data").click(function() {
         $.ajax({
             url: '/spreadsheet/getdata',
@@ -56,6 +57,7 @@ $(document).ready(function() {
     }); // end - click
 
     $(".done-picking").click(function() {
+        console.log('Message 60 - in click handler');
         $.ajax({
             url: '/printcards',
             method: "POST",

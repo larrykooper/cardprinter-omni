@@ -1,18 +1,8 @@
 module SpreadsheetReader
 
     def SpreadsheetReader.get_sheet_data
-        #client = Google::APIClient.new(
-        #    :application_name => 'Card Printer',
-        #    :application_version => '0.0.1'
-        #)
-        #client.authorization.access_token = Token.last.fresh_token
-        #service = client.discovered_api('drive')
-        #puts "Title \t ID \t Preferred"
-        #client.discovered_apis.each do |gapi|
-        #    puts "#{gapi.title} \t #{gapi.id} \t #{gapi.preferred}"
-        #end
 
-        # LKHERE do http request
+        # Do http request
         access_token = Token.last.fresh_token
 
         full_url = 'https://spreadsheets.google.com/feeds/spreadsheets/private/full'
@@ -25,9 +15,7 @@ module SpreadsheetReader
 
         response = http.request(request)
         #response.body is the stuff you want
-
-
-
+        puts response.body
 
     end
 

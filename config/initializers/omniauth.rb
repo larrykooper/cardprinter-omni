@@ -6,7 +6,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
     provider :google_oauth2, ENV['CARDPRINTER_CLIENT_ID'], ENV['CARDPRINTER_CLIENT_SECRET'], {
     # scope: Tells Google which APIs I would like to access
-    scope: ['email', "https://www.googleapis.com/auth/drive",
-            "https://spreadsheets.google.com/feeds/"]
+    # see this https://developers.google.com/google-apps/spreadsheets/
+    scope: ['email', "https://spreadsheets.google.com/feeds/"]
     }
 end
+
+
+#scope: ['email', "https://www.googleapis.com/auth/drive",
+#            "https://spreadsheets.google.com/feeds/"]
+#    }

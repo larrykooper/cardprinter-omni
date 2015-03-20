@@ -2,29 +2,28 @@
 
 var mydata = {};
 
-var authorizeSuccess = function(data, status) {
-    var arrayLength, i, key, myobject, snippet, bigsnippet;
+var getdataSuccess = function(data, status) {
+    var arrayLength, i, key, myobject, snippet, one_row;
     // data is an array of objects
     // The following displays the data on screen
-    console.log('Message 8: authorization was successful');
+    console.log('Message 8: getting data was successful');
+    $('#spinner').hide();
     mydata = data;
     arrayLength = data.length;
     for (i = 0; i < arrayLength; i++) {
-        bigsnippet = '';
-        myobject = data[i]
+        one_row = '<p>';
+        myobject = data[i];
         for (key in myobject) {
             if (myobject.hasOwnProperty(key)) {
+                // This adds each field
                 snippet = '<span>'+ key + ' ' + myobject[key] + '</span>';
-                bigsnippet = bigsnippet + snippet;
+                one_row = one_row + snippet;
             }
         }
-        $('.data').append(bigsnippet);
+        one_row = one_row + '</p>'
+        $('.data').append(one_row);
     }
 
-
-    mydata = data;
-
-    //$('.data').html(data);
 };
 
 var printCardsSuccess = function(data, status) {
@@ -39,6 +38,18 @@ var ajaxError = function(jqXHR, status, error) {
 };
 
 $(document).ready(function() {
+    $(".get-data").click(function() {
+        $.ajax({
+            url: '/spreadsheet/getdata',
+            success: getdataSuccess,
+            error: ajaxError,
+            dataType: "json",
+            beforeSend: function () {
+                $('#spinner').show();
+            },
+        });
+    }); // end - click
+
     $(".done-picking").click(function() {
         $.ajax({
             url: '/printcards',

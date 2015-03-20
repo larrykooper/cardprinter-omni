@@ -6,49 +6,68 @@
     float: left;
 }
 
+#acolumn p {
+    margin: 11px;
+    font-size: 20px;
+}
+
 p {
 	font-size: 18px;
 }
 
 .button-bunch {
     float: left;
-    margin-top: 70px;
+    margin-top: 128px;
 }
 
 .lk-button {
 	display: block;
     float: left;
-	height: 80px;
+	height: 95px;
 	width: 200px;
 	border: 1px solid;
     border-radius: 25px;
 	cursor: pointer;
 }
 
-.readss {
+.authenticate {
 	background-color: #ffc0cb;
 }
 
+.done-picking,
+.get-data {
+    margin-left: 133px;
+}
+
+.get-data {
+    background-color: #e9b148;
+}
+
 .done-picking {
-    margin-left: 200px;
     background-color: #33ccff;
 }
 
 .button-text {
     font-size: 26px;
     line-height: 27px;
+    margin-top: 10px;
 	margin-left: auto;
     margin-right: auto;
     color: black;
 }
 
-.readss .button-text {
-    margin-top: 10px;
-    width: 64%;
+.authenticate .button-text {
+    width: 72%;
+    margin-top: 21px;
+}
+
+.get-data .button-text {
+    font-size: 23px;
+    width: 107px;
 }
 
 .done-picking .button-text {
-    width: 28%;
+    width: 84px;
 }
 
 .data {

@@ -3,26 +3,31 @@
 var mydata = {};
 
 var getdataSuccess = function(data, status) {
-    var arrayLength, i, key, myobject, snippet, one_row;
+    var arrayLength, i, key, myobject, snippet, oneRow, $data, bigstring;
     // data is an array of objects
     // The following displays the data on screen
     console.log('Message 8: getting data was successful');
     $('#spinner').hide();
     mydata = data;
+    $data = $('.data');
+    bigstring = '';
+    bigstring += '<table id="data-area">';
     arrayLength = data.length;
     for (i = 0; i < arrayLength; i++) {
-        one_row = '<p>';
+        oneRow = '<tr>';
         myobject = data[i];
         for (key in myobject) {
             if (myobject.hasOwnProperty(key)) {
                 // This adds each field
-                snippet = '<span>'+ key + ' ' + myobject[key] + '</span>';
-                one_row = one_row + snippet;
+                snippet = '<td>'+ myobject[key] + '</td>';
+                oneRow = oneRow + snippet;
             }
         }
-        one_row = one_row + '</p>'
-        $('.data').append(one_row);
+        oneRow = oneRow + '</tr>'
+        bigstring += oneRow;
     }
+    bigstring += '</table>';
+    $data.append(bigstring);
 
 };
 

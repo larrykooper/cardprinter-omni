@@ -70,6 +70,10 @@ p {
     width: 84px;
 }
 
+#spinner {
+    display: none;
+}
+
 .data {
     clear: left;
 }

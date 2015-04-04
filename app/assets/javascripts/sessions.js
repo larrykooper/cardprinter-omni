@@ -36,14 +36,18 @@ var printCardsSuccess = function(data, status) {
 };
 
 var ajaxError = function(jqXHR, status, error) {
+    $('#spinner').hide();
     console.log('Message 14: There has been an Ajax error.');
-    console.log('Message 15: Status and error follow.');
+    console.log('Message 15: Status, responseText, and error follow.');
 	console.log(status);
+    console.log(jqXHR.responseText);
 	console.log(error);
+    $data = $('.data');
+    $data.append(jqXHR.responseText);
 };
 
 $(document).ready(function() {
-    alert( "You are running jQuery version: " + $.fn.jquery );
+    console.log( "You are running jQuery version: " + $.fn.jquery );
     $(".get-data").click(function() {
         $.ajax({
             url: '/spreadsheet/getdata',

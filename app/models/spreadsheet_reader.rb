@@ -15,7 +15,6 @@ module SpreadsheetReader
        :swiss_cheese, :project?, :bucket_list?]
 
     def SpreadsheetReader.get_sheet_data
-
         access_token = Token.last.fresh_token
         @@session = GoogleDrive.login_with_oauth(access_token)
         puts 'MESSAGE 17'

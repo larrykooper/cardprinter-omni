@@ -15,10 +15,12 @@ module CardDrawer
     @@y_position_of_top_description = 690
 
     def CardDrawer.nbr_cards_to_print
+        # private
         @@mypayload.size
     end
 
     def CardDrawer.draw_page(pdf, starting_data_index)
+        # private
 
         pdf.stroke_axis
 
@@ -74,6 +76,8 @@ module CardDrawer
     end # self.draw_page
 
     def CardDrawer.generate_document(payload)
+        # public
+        #
         # payload is a hash, with number of entries
         # equal to the number of rows (excluding top row)
         # in the spreadsheet

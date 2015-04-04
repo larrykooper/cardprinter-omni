@@ -1,6 +1,6 @@
 // All this logic will automatically be available in application.js.
 
-var mydata = {};
+var mydata = {}; // just used to pass (all) the returned data to the card printer; to be deleted
 
 var getdataSuccess = function(data, status) {
     var arrayLength, i, key, myobject, snippet, oneRow, $data, bigstring;

@@ -4,7 +4,7 @@ class SpreadsheetsController < ApplicationController
         begin
             @data = SpreadsheetReader.get_sheet_data
         rescue
-            render :json => {:errors => "You need authorization!"}, :status => 500
+            render :json => {:errors => "There has been a Ruby exception"}, :status => 500
             return
         end
         respond_to do |format|

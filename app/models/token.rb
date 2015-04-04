@@ -44,8 +44,10 @@ class Token < ActiveRecord::Base
         puts self.to_params
         response = Net::HTTP.post_form(url, self.to_params)
         if response.is_a?(Net::HTTPBadRequest)
+            puts "Response is 'bad request'"
             raise Cardprinter::NeedsAuthentication, "Authentication needed"
         end
+        puts "Response is NOT bad request"
         response
     end
 

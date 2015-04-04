@@ -9,21 +9,29 @@ module SpreadsheetReader
     require "json"
 
     @@session = nil
-    @@headings = [:lo_number, :on_now, :has_card, :on_tdl_for_max?,
+    # MAINTENANCE
+    @@headings = [:lo_number, :on_now?, :has_card?,
        :tag, :long_description, :would_make_me_happy?, :priority,
-       :g_r, :create_date, :finishable?, :card_description, :prio_notes,
-       :swiss_cheese, :project?, :bucket_list?]
+       :create_date, :finishable?, :card_description, :prio_notes,
+       :swiss_cheese, :project?, :bucket_list?, :costs_money?]
 
     def SpreadsheetReader.get_sheet_data
         access_token = Token.last.fresh_token
         @@session = GoogleDrive.login_with_oauth(access_token)
-        puts 'MESSAGE 17'
+        puts 'MESSAGE 17 - spreadsheet_reader.rb'
 
         # worksheets[0] is first worksheet
-        ws = @@session.spreadsheet_by_key(ENV['TEST_GR_SHEET_KEY']).worksheets[0]
-
+        begin
+            ws = @@session.spreadsheet_by_key(ENV['TEST_GR_SHEET_KEY']).worksheets[0]
+        rescue Exception => e
+            puts "I am in rescue"
+            puts "#{$!}"
+            puts e.Message
+            puts e.backtrace.inspect
+        end
         # Return the spreadsheet data by rows
         # As: [["fuga", "baz"], ["foo", "bar"]]
+        puts 'Message 28 - spreadsheet_reader.rb'
         data_as_array = ws.rows
         hashes_array = SpreadsheetReader.convert_data(data_as_array)
         hashes_array.to_json

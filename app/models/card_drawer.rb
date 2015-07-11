@@ -10,6 +10,7 @@ module CardDrawer
     @@card_width = 267.5
     @@left_margin_of_number = 12
     @@left_margin_of_description = 25
+    @@left_margin_of_prio = 160
     @@right_margin = 20
     @@y_position_of_top_number = 710
     @@y_position_of_top_description = 690
@@ -45,9 +46,21 @@ module CardDrawer
 
             # card on left
 
+            # Number
+
             pdf.text_box(@@mypayload[data_index.to_s]["lo_number"],
                 :at =>[@@left_margin_of_number, @@y_position_of_top_number - card_row * @@card_height],
                 :width => @@card_width - (@@left_margin_of_description + @@right_margin))
+
+            # Priority
+
+            pdf.text_box(@@mypayload[data_index.to_s]["priority"],
+                :at =>[@@left_margin_of_prio, @@y_position_of_top_number - card_row * @@card_height],
+                :width => @@card_width - (@@left_margin_of_prio + @@right_margin),
+                :overflow => :shrink_to_fit,
+                :align => :right)
+
+            # Description
 
             pdf.text_box(@@mypayload[data_index.to_s]["card_description"],
                 :at =>[@@left_margin_of_description, @@y_position_of_top_description - card_row * @@card_height],
@@ -60,6 +73,7 @@ module CardDrawer
             end
 
             # card on right
+
             pdf.text_box(@@mypayload[data_index.to_s]["lo_number"],
                 :at =>[@@left_margin_of_number + @@card_width, @@y_position_of_top_number - card_row * @@card_height],
                 :width => @@card_width - (@@left_margin_of_description + @@right_margin))

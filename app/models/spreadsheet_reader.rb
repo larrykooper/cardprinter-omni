@@ -29,7 +29,6 @@ module SpreadsheetReader
             sheet_key = ENV['LIVE_LC_SHEET_KEY']
             headings = @@lc_headings
         end
-        sheet_key = sheet == 'gr' ? ENV['TEST_GR_SHEET_KEY'] : ENV['LIVE_LC_SHEET_KEY']
         puts "message 26 - spreadsheet_reader model"
         puts "sheet_key: " + sheet_key
 

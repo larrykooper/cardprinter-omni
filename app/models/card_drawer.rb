@@ -101,7 +101,7 @@ module CardDrawer
         # public
         #
         # payload is a hash, with number of entries
-        # equal to the number of rows (excluding top row)
+        # equal to the number of rows (including top row)
         # in the spreadsheet
 
         @@mypayload = payload

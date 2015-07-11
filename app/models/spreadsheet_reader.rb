@@ -55,19 +55,15 @@ module SpreadsheetReader
     def SpreadsheetReader.convert_data(data_as_array, headings)
         puts 'Message 49 - in convert_data'
         hashes_array = Array.new
-        first_row = true
+        # Note that first row is column headings
         data_as_array.each do |row_array|
-            if not first_row
-                data_hash = {}
-                i = 0
-                row_array.each do |cell_string|
-                    data_hash[headings[i]] = cell_string
-                    i += 1
-                end
-                hashes_array << data_hash
-            else
-                first_row = false
+            data_hash = {}
+            i = 0
+            row_array.each do |cell_string|
+                data_hash[headings[i]] = cell_string
+                i += 1
             end
+            hashes_array << data_hash
         end
         hashes_array
     end

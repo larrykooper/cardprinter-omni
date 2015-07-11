@@ -5,6 +5,8 @@ class CardgeneratorsController < ApplicationController
         # TODO Put in a try/catch here or similar
         # to catch errors in the card generation
 
+        # I call this with all the data fields in the spreadsheet
+
         @response = CardDrawer.generate_document(params[:data])
         respond_to do |format|
             format.json {

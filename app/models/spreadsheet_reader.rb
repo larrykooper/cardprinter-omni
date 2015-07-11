@@ -10,10 +10,10 @@ module SpreadsheetReader
 
     @@session = nil
     # MAINTENANCE
-    @@headings = [:lo_number, :on_now?, :has_card?,
-       :tag, :long_description, :would_make_me_happy?, :priority,
-       :create_date, :finishable?, :card_description, :prio_notes,
-       :swiss_cheese, :project?, :bucket_list?, :costs_money?]
+    @@headings = [:lo_number, :on_now?, :secret_number, :outside_inside,
+       :only_nyt?, :category_tag, :long_description, :card_description, :would_make_me_happy?, :priority,
+       :create_date, :finishable?, :g_r,  :prio_notes, :evernote_note, :link_1,
+       :swiss_cheese, :project?, :bucket_list?, :has_card?]
 
     def SpreadsheetReader.get_sheet_data
         access_token = Token.last.fresh_token
@@ -21,6 +21,8 @@ module SpreadsheetReader
         puts 'MESSAGE 17 - spreadsheet_reader.rb'
 
         # worksheets[0] is first worksheet
+        # LIVE_GR_SHEET_KEY is the live one
+        # TEST_GR_SHEET_KEY is the test one
         begin
             ws = @@session.spreadsheet_by_key(ENV['TEST_GR_SHEET_KEY']).worksheets[0]
         rescue Exception => e

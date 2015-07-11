@@ -91,7 +91,7 @@ module CardDrawer
         (1..number_of_pages).each do |page|
             CardDrawer.draw_page(pdf_file, starting_data_index)
             if page != number_of_pages
-                start_new_page
+                pdf_file.start_new_page
                 starting_data_index += 10
             end
         end

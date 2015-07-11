@@ -1,8 +1,11 @@
 class SpreadsheetsController < ApplicationController
 
-    def get_sheet_data
+    def getdata
         begin
-            @data = SpreadsheetReader.get_sheet_data
+            sheet = params["sheet"]
+            puts "Controller spreadsheets Message 6"
+            puts "sheet is: " + sheet
+            @data = SpreadsheetReader.get_sheet_data(sheet)
         rescue
             render :json => {:errors => "There has been a Ruby exception"}, :status => 500
             return

@@ -1,12 +1,25 @@
 // All this logic will automatically be available in application.js.
 
-var mydata = {}; // just used to pass (all) the returned data to the card printer; to be deleted
+var mydata = {}; // Used to pass all the returned data to the PDF creator
+
+var getSheetData = function(event) {
+    console.log('Message 6: in getSheetData');
+    $.ajax({
+        url: '/spreadsheet/getdata/' + event.data.sheet,
+        success: getdataSuccess,
+        error: ajaxError,
+        dataType: "json",
+        beforeSend: function () {
+            $('#spinner').show();
+        },
+    });
+};
 
 var getdataSuccess = function(data, status) {
     var arrayLength, i, key, myobject, snippet, oneRow, $data, bigstring;
     // data is an array of objects
     // The following displays the data on screen
-    console.log('Message 8: getting data was successful');
+    console.log('Message 22: getting data was successful');
     $('#spinner').hide();
     mydata = data;
     $data = $('.data');
@@ -48,20 +61,12 @@ var ajaxError = function(jqXHR, status, error) {
 
 $(document).ready(function() {
     console.log( "You are running jQuery version: " + $.fn.jquery );
-    $(".get-data").click(function() {
-        $.ajax({
-            url: '/spreadsheet/getdata',
-            success: getdataSuccess,
-            error: ajaxError,
-            dataType: "json",
-            beforeSend: function () {
-                $('#spinner').show();
-            },
-        });
-    }); // end - click
 
-    $(".done-picking").click(function() {
-        console.log('Message 60 - in click handler');
+    $(".get-gr-data").on("click", null, {sheet: 'gr'}, getSheetData);
+
+    $(".get-lc-data").on("click", null, {sheet: 'lc'}, getSheetData);
+
+    $(".create-pdf").click(function() {
         $.ajax({
             url: '/printcards',
             method: "POST",

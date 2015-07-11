@@ -18,6 +18,7 @@ p {
 .button-bunch {
     float: left;
     margin-top: 128px;
+    width: 100%;
 }
 
 .lk-button {
@@ -34,16 +35,16 @@ p {
 	background-color: #ffc0cb;
 }
 
-.done-picking,
-.get-data {
+.create-pdf,
+.get-gr-data {
     margin-left: 133px;
 }
 
 .get-data {
-    background-color: #e9b148;
+    background-color: #e9b148;  // pumpkin
 }
 
-.done-picking {
+.create-pdf {
     background-color: #33ccff;
 }
 
@@ -66,12 +67,17 @@ p {
     width: 107px;
 }
 
-.done-picking .button-text {
+.create-pdf .button-text {
     width: 84px;
 }
 
 #spinner {
     display: none;
+}
+
+.get-lc-data {
+    margin-top: 25px;
+    margin-left: 335px;
 }
 
 .data {
